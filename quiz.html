@@ -22,7 +22,7 @@
     let currentIndex = 0;
     let currentQuestion = null;
 
-    fetch("data/vocab.json")
+    fetch("vocab.json")
       .then(res => {
         if (!res.ok) throw new Error("Failed to load.");
         return res.json();

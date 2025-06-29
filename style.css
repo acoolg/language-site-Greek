@@ -95,3 +95,7 @@ input[type="text"] {
   margin-bottom: 15px;
   box-sizing: border-box; /* 這行是關鍵！ */
 }
+
+a{
+  color: #1358FF;
+}

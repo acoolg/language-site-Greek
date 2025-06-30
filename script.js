@@ -18,12 +18,23 @@ fetch("data/vocab.json")
     console.error("Error:", err);
   });
 
+/**
+ * Resets the question pool by copying the vocabulary array, shuffling it, and resetting the current index.
+ *
+ * @return {void}
+ */
 function resetQuestionPool() {
   questionPool = [...vocab];
   shuffle(questionPool);
   currentIndex = 0;
 }
 
+/**
+ * Proceeds to the next question in the quiz, resetting the question pool if necessary.
+ * Generates answer options and updates the UI accordingly.
+ *
+ * @return {void}
+ */
 function nextQuestion() {
   document.getElementById("feedback").textContent = "";
 
@@ -57,6 +68,12 @@ function nextQuestion() {
   });
 }
 
+/**
+ * Updates the feedback element based on the correctness of the user's answer.
+ *
+ * @param {string} selected - The user's selected answer.
+ * @return {void}
+ */
 function checkAnswer(selected) {
   const feedback = document.getElementById("feedback");
   if (selected === currentQuestion.translation) {
@@ -68,6 +85,12 @@ function checkAnswer(selected) {
   }
 }
 
+/**
+ * Randomly rearranges the elements of an array in-place.
+ *
+ * @param {Array} array - the array to be shuffled
+ * @return {undefined}
+ */
 function shuffle(array) {
   for (let i = array.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
